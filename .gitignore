@@ -1,0 +1,5 @@
+venv/*
+*.json
+.env
+*.npy
+*/__pycache__/*
