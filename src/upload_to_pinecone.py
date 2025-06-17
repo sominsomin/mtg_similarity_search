@@ -36,4 +36,4 @@ if __name__ == "__main__":
     index = pc.Index(index_name)
     # index.delete(delete_all=True)
 
-    upend_to_pinecone(cards[0:1000], index)
+    upend_to_pinecone(cards, index)

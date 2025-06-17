@@ -17,7 +17,7 @@ def query_pinecone(embedding: list, top_k=5, filter=None):
 
     query_filter = {
         "$and": [
-            {key: {"$in": values}} for key, values in filter.items()
+            {key: {"$in": values}} for key, values in filter.items() if values
         ]
     }
 
