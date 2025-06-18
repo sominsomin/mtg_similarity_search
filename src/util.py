@@ -35,6 +35,18 @@ def load_card_with_embeddings(file_path_cards, file_path_embeddings):
 
     return cards_with_embeddings
 
+def filter_unique_results(results):
+    unique_results = []
+    seen_names = set()
+
+    for result in results:
+        name = result["metadata"]["name"]
+        if name not in seen_names:
+            unique_results.append(result)
+            seen_names.add(name)
+
+    return unique_results
+
 if __name__=="__main__":
     cards = load_cards("data/default-cards-20250616213306.json")
 

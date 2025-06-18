@@ -7,7 +7,7 @@ color_values = {
 }
 
 card_classes = {
-    "Basic Land": "Basic Land",
+    #"Basic Land": "Basic Land",
     "Creature": "Creature",
     "Instant": "Instant",
     "Sorcery": "Sorcery",

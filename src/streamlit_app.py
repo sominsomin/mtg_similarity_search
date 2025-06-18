@@ -1,6 +1,7 @@
 import streamlit as st
 from create_embeddings import embed_query 
 from pinecone_util import query_pinecone
+from util import filter_unique_results
 from card_types import color_values, card_classes, formats_classes
 
 st.set_page_config(page_title="MTG Card Search", layout="wide")
@@ -23,29 +24,26 @@ if user_query:
             "color_identity": selected_color_codes,
             "type_line": selected_card_classes,
             "legalities": selected_formats,
-            #"mana_cost": mana_filter,
-            #"type": card_type_filter
         }
 
-        print(filter["color_identity"])
-
         embedding = embed_query(user_query)
-        results = query_pinecone(embedding, top_k=30, filter=filter)
-
-        print(results)
-
+        results = query_pinecone(embedding, top_k=100, filter=filter)
+        results = filter_unique_results(results)
+    
     st.subheader("Similar Cards")
     
     with st.container():
-        cols = st.columns([1, 1, 1])  # display 3 columns with equal width
+        cols = st.columns([1, 1, 1]) 
         for i, item in enumerate(results):
-            with cols[i % 3]:  # cycle through the columns
+            with cols[i % 3]:
+                container = st.container()
                 name = item["metadata"].get("name", "Unknown Card")
                 text = item["metadata"].get("text", "")
                 image_url = item["metadata"].get("image", "")
                 score = item["score"]
 
-                st.markdown(f"### {name} (Score: {score:.3f})")
+                st.markdown(f"##### {name} (Score: {score:.3f})")
                 if image_url:
                     st.image(image_url, width=200)
                 # st.write(text)
+                container.empty()

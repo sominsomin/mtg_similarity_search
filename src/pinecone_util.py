@@ -25,8 +25,10 @@ def query_pinecone(embedding: list, top_k=5, filter=None):
         vector=embedding.astype("float32").tolist(),
         top_k=top_k, 
         include_metadata=True,
-        filter=query_filter
-        )
+        filter=query_filter,
+        group_by=["name"],
+        top_k_per_group=1
+    )
 
     matches = query_response["matches"]
 
