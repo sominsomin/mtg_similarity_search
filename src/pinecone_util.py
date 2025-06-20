@@ -1,7 +1,6 @@
-import os
-from dotenv import load_dotenv
 from itertools import islice
 from pinecone import Pinecone
+import streamlit as st
 
 def init_pinecone(api_key: str, index_name: str):
     pc = Pinecone(
@@ -9,10 +8,7 @@ def init_pinecone(api_key: str, index_name: str):
     )
     return pc.Index(index_name)
 
-def query_pinecone(embedding: list, top_k=5, filter=None):
-    load_dotenv()
-    api_key = os.getenv("PINECONE_API_KEY")
-    index_name = os.getenv("INDEX_NAME")
+def query_pinecone(embedding: list, top_k=5, filter=None, api_key=None, index_name=None):
     index = init_pinecone(api_key, index_name)
 
     query_filter = {

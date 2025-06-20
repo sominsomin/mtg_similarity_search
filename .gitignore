@@ -4,3 +4,4 @@ venv/*
 *.npy
 */__pycache__/*
 .TODO
+secrets.toml

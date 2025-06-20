@@ -14,6 +14,9 @@ color_filter = st.multiselect("Color", list(color_values.values()))
 card_class = st.multiselect("Type", list(card_classes.values()))
 formats_class = st.multiselect("Format", list(formats_classes.values()))
 
+PINECONE_API_KEY = st.secrets['secrets']['PINECONE_API_KEY']
+INDEX_NAME = st.secrets['secrets']["INDEX_NAME"]
+
 if user_query:
     with st.spinner("Searching..."):
         selected_color_codes = [key for key, value in color_values.items() if value in color_filter]
@@ -27,7 +30,7 @@ if user_query:
         }
 
         embedding = embed_query(user_query)
-        results = query_pinecone(embedding, top_k=100, filter=filter)
+        results = query_pinecone(embedding, top_k=100, filter=filter, api_key=PINECONE_API_KEY, index_name=INDEX_NAME)
         results = filter_unique_results(results)
     
     st.subheader("Similar Cards")
