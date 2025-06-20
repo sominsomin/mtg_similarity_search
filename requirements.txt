@@ -1,0 +1,7 @@
+sentence_transformers
+wget
+pandas
+numpy
+streamlit
+dotenv
+pinecone

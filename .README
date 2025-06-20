@@ -1,8 +1,0 @@
-# About
-
-This project aims to search for similar Magic The Gathering Cards by using Sentencen Embeddings. You can search for cards based on some card texts and additional filters.
-
-# 
-
-Card texts are embedded using a SentenceTransformer from huggingface. They are then uploaded to pinecone, to host the vectordatabase.
-Search results can be accessed via a streamlit app.
