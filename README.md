@@ -15,9 +15,10 @@ Search results can be accessed via a streamlit app, either running locally or de
 
 Create a .env file in the project root with the following values:
 
-PINECONE_API_KEY=your_pinecone_api_key
+````PINECONE_API_KEY=your_pinecone_api_key
 INDEX_NAME=your_index_name
-REGION=your_pinecone_region
+REGION=your_pinecone_region`
+````
 
 # Installation
 
