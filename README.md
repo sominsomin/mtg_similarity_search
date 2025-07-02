@@ -8,6 +8,8 @@ This project enables semantic search for Magic: The Gathering cards using senten
 A user-friendly interface is provided through a Streamlit app.
     - Live App: [Insert link here]
 
+![Screenshot](images/screenshot2.png)
+
 # Process
 
 Card texts are embedded using a SentenceTransformer from huggingface. They are then uploaded to pinecone, to host the vectordatabase. This requires a pinecone account.
@@ -22,10 +24,36 @@ INDEX_NAME=your_index_name
 REGION=your_pinecone_region
 ````
 
-# Installation
+## Installation
 
 `pip install -r requirements.txt`
 
+## Download current Data from Scryfall
+
+Either do this for a current file:
+````
+python data/get_data.py
+````
+Or do it manually by going to [Scryfall Bulk Data](https://scryfall.com/docs/api/bulk-data)
+
+## Create Embeddings
+
+Create the embeddings:
+````
+python src/create_embeddings.py
+````
+This will create a file in data/card_embeddings.npy
+
+## Upload to pinecone
+
+````
+python src/upload_to_pinecone.py
+````
+Uploads embeddings to pinecone.
+
 # Streamlit
 
-`streamlit run src/streamlit_app.py`
+Run streamlit app:
+````
+streamlit run src/streamlit_app.py
+````
