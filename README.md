@@ -6,7 +6,7 @@ This project enables semantic search for Magic: The Gathering cards using senten
     - Format (Standard, Modern, etc.)
 
 A user-friendly interface is provided through a Streamlit app.
-    - Live App: [Insert link here]
+    - [Live App](https://sominsomin-mtg-similarity-search-srcstreamlit-app-g87txa.streamlit.app/)
 
 ![Screenshot](images/screenshot2.png)
 
