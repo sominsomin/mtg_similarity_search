@@ -1,7 +1,7 @@
 # About
 
 This project enables semantic search for Magic: The Gathering cards using sentence embeddings and a vector database. With this tool, you can search for cards based on natural language queries (e.g., "draw a card", "gain life") and apply filters such as:
-    - Color  
+    - Color  <br\>
     - Card type (Creature, Artifact, etc.)  
     - Format (Standard, Modern, etc.)  
 
